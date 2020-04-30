@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: cabecera"></head>
+<body>
+
+<header th:replace="layout/layout :: menu"></header>
+
+
+<table class="table">
+    <thead class="table thead-dark">
+        <tr>
+            <th>Nombre completo</th>
+            <th>Correo</th>
+            <th>Fecha de Nacimiento</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="u: ${user}">
+            <td th:text="${u.lastname}"></td>
+            <td th:text="${u.email}"></td>
+            <td th:text="${u.fechaNaci}"></td>
+            <td hidden th:text="${u.id}"></td>
+        </tr>
+    </tbody>
+</table>
+
+<footer th:replace="layout/layout :: pie"></footer>
+</body>
+</html>
