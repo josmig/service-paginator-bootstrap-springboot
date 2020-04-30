@@ -5,25 +5,32 @@
 
 <header th:replace="layout/layout :: menu"></header>
 
-
-<table class="table">
-    <thead class="table thead-dark">
+<div class="container mt-5">
+    <a th:href="@{/user/form}" class="btn btn-outline-primary">Crear nuevo usuario</a>
+    <table class="table">
+        <thead>
         <tr>
             <th>Nombre completo</th>
             <th>Correo</th>
             <th>Fecha de Nacimiento</th>
+            <th>Acciones</th>
         </tr>
-    </thead>
-    <tbody>
+        </thead>
+        <tbody>
         <tr th:each="u: ${user}">
             <td th:text="${u.lastname}"></td>
             <td th:text="${u.email}"></td>
             <td th:text="${u.fechaNaci}"></td>
             <td hidden th:text="${u.id}"></td>
+            <td>
+                <a class="btn btn-outline-info" th:href="@{/user/form/} + ${u.id}">Editar</a>
+                <a class="btn btn-outline-danger" th:href="@{/user/delete/} + ${u.id}">Eliminar</a>
+            </td>
         </tr>
-    </tbody>
-</table>
+        </tbody>
+    </table>
 
+</div>
 <footer th:replace="layout/layout :: pie"></footer>
 </body>
 </html>

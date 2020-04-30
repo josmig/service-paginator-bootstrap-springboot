@@ -7,13 +7,13 @@
 </head>
 <body>
     <header th:fragment="menu">
-        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" th:href="@{/}">Paginator</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse float-right" id="navbarNav">
+                <div class="collapse navbar-collapse float-rigth" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
                             <a class="nav-link" th:href="@{/}">Home <span class="sr-only">(current)</span></a>
@@ -25,6 +25,12 @@
                 </div>
             </div>
         </nav>
+
+        <!--Mensajes flash-->
+        <span class="alert alert-success" th:if="${success != null}" th:text="${success}"></span>
+        <span class="alert alert-danger" th:if="${error != null}" th:text="${error}"></span>
+        <span class="alert alert-warning" th:if="${warning != null}" th:text="${warning}"></span>
+        <span class="alert alert-info" th:if="${info != null}" th:text="${info}"></span>
     </header>
     <footer th:fragment="pie">
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

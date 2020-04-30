@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: cabecera"></head>
+<body>
+<header th:replace="layout/layout :: menu"></header>
+
+<div class="container">
+    <h1 th:text="${title}"></h1>
+
+    <form th:action="@{/user/form}" th:object="${usuario}" method="post">
+        <div class="form-group">
+            <label>Nombre Completo</label>
+            <input type="text" placeholder="Ingrese nombre completo" class="form-control" th:field="*{lastname}">
+            <span   class="badge badge-danger"
+                    th:field="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></span>
+        </div>
+        <div class="form-group">
+            <label>Correo Electronico</label>
+            <input type="text" placeholder="Ingrese su correo electronico" class="form-control" th:field="*{email}">
+            <span   class="badge badge-danger"
+                    th:field="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+        </div>
+        <div class="form-group">
+            <label>Fecha Nacimiendo</label>
+            <input type="text" placeholder="Aqui fecha de nacimiento" class="form-control" th:field="*{fechaNaci}">
+            <span   class="badge badge-danger"
+                    th:field="${#fields.hasErrors('fechaNaci')}" th:errors="*{fechaNaci}"></span>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Crear usuario">
+    </form>
+</div>
+
+
+<footer th:replace="layout/layout :: pie"></footer>
+</body>
+</html>
