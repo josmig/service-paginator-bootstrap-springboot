@@ -29,7 +29,7 @@ public class UsuarioController {
     public String listar(@RequestParam(name = "page" ,defaultValue = "0") int page,Map<String ,Object>model){
     	
     	//aca le decimos cuantos registros por pagina se mostrara
-    	Pageable pageRequest = PageRequest.of(page, 5);
+    	Pageable pageRequest = PageRequest.of(page, 4);
     	Page<Usuario> usuarios = service.findAll(pageRequest);
     	PageRender<Usuario> pageRender= new PageRender<>("/user/list", usuarios);
         
